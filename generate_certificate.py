@@ -158,15 +158,8 @@ def main():
         expiry_date="30 June 2027"
     )
 
-    # OPTION 1: Use your GitHub Pages URL
-    # base_url = "https://YOUR_USERNAME.github.io/QR_generator"
-
-    # OPTION 2: Use a shortened URL (after deploying to GitHub Pages)
-    # 1. Deploy to GitHub Pages first
-    # 2. Get the certificate URL
-    # 3. Shorten it using bit.ly, tinyurl.com, etc.
-    # 4. Put the shortened URL here:
-    base_url = "https://bit.ly/cert-verify"  # Example shortened URL
+    # Your GitHub Pages URL
+    base_url = "https://xubair001.github.io/qr.certificates/certificates"
 
     print("\n" + "="*50)
     print("CERTIFICATE GENERATOR")
