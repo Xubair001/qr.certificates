@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Verification - PK17058</title>
+    <style>
+        * {margin: 0;padding: 0;box-sizing: border-box;}
+        body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);min-height: 100vh;display: flex;align-items: center;justify-content: center;padding: 20px;}
+        .container {max-width: 600px;width: 100%;}
+        .verification-badge {background: #10b981;color: white;text-align: center;padding: 20px;border-radius: 12px 12px 0 0;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);}
+        .badge-icon {width: 60px;height: 60px;background: rgba(255, 255, 255, 0.2);border-radius: 50%;display: flex;align-items: center;justify-content: center;margin: 0 auto 15px;font-size: 32px;}
+        .verification-badge h1 {font-size: 24px;margin-bottom: 5px;font-weight: 600;}
+        .verification-badge p {font-size: 14px;opacity: 0.95;}
+        .certificate-card {background: white;border-radius: 0 0 12px 12px;box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);overflow: hidden;}
+        .certificate-header {background: linear-gradient(135deg, #1e3a5f, #2d5a87);color: white;padding: 30px;text-align: center;}
+        .certificate-header h2 {font-size: 28px;margin-bottom: 8px;font-weight: 600;}
+        .certificate-header p {font-size: 14px;opacity: 0.9;}
+        .certificate-body {padding: 30px;}
+        .info-row {display: flex;padding: 16px 0;border-bottom: 1px solid #e5e7eb;}
+        .info-row:last-child {border-bottom: none;}
+        .info-label {width: 35%;color: #6b7280;font-size: 14px;font-weight: 500;}
+        .info-value {width: 65%;color: #1f2937;font-size: 14px;font-weight: 600;}
+        .certificate-footer {background: #f9fafb;padding: 20px 30px;text-align: center;font-size: 12px;color: #6b7280;border-top: 1px solid #e5e7eb;}
+        .timestamp {margin-top: 8px;font-size: 11px;opacity: 0.8;}
+        @media (max-width: 600px) {.certificate-header h2 {font-size: 22px;}.info-row {flex-direction: column;padding: 12px 0;}.info-label {width: 100%;margin-bottom: 4px;}.info-value {width: 100%;}}
+        .pulse {animation: pulse 2s infinite;}
+        @keyframes pulse {0%, 100% {transform: scale(1);}50% {transform: scale(1.05);}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="verification-badge">
+            <div class="badge-icon pulse">✓</div>
+            <h1>VERIFIED</h1>
+            <p>This certificate is valid and authenticated</p>
+        </div>
+        <div class="certificate-card">
+            <div class="certificate-header">
+                <h2>Training Certificate</h2>
+                <p>Official Certification of Completion</p>
+            </div>
+            <div class="certificate-body">
+                <div class="info-row"><div class="info-label">Certificate No.</div><div class="info-value">PK17058</div></div>
+                <div class="info-row"><div class="info-label">Participant Name</div><div class="info-value">Muhammad Hasnain</div></div>
+                <div class="info-row"><div class="info-label">ID Number</div><div class="info-value">92347591734</div></div>
+                <div class="info-row"><div class="info-label">Course</div><div class="info-value">Security Officer</div></div>
+                <div class="info-row"><div class="info-label">Company</div><div class="info-value">DECON</div></div>
+                <div class="info-row"><div class="info-label">Training Date</div><div class="info-value">01 July 2024</div></div>
+                <div class="info-row"><div class="info-label">Valid Until</div><div class="info-value">30 June 2027</div></div>
+            </div>
+            <div class="certificate-footer">
+                Certificate verified successfully
+                <div class="timestamp" id="timestamp"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const now = new Date();
+        const formatted = now.toLocaleString('en-US', {year: 'numeric',month: 'short',day: 'numeric',hour: '2-digit',minute: '2-digit'});
+        document.getElementById('timestamp').textContent = `Verified on ${formatted}`;
+    </script>
+</body>
+</html>
