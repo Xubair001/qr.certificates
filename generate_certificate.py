@@ -133,7 +133,13 @@ def create_certificate(cert: Certificate, base_url: str, output_dir: str = "cert
     print(f"✓ Certificate HTML saved to: {html_path}")
 
     # Generate QR code with URL
-    cert_url = f"{base_url}/{html_filename}"
+    # If using a shortened URL (bit.ly, tinyurl, etc.), use it directly
+    # Otherwise, append the filename to the base URL
+    if any(shortener in base_url for shortener in ['bit.ly', 'tinyurl.com', 'short.io', 'rebrand.ly']):
+        cert_url = base_url  # Use shortened URL as-is
+    else:
+        cert_url = f"{base_url}/{html_filename}"  # Append filename to base URL
+
     qr_filename = f"qr_{cert.certificate_no}.png"
     qr_path = output_path / qr_filename
 
@@ -158,8 +164,8 @@ def main():
         expiry_date="30 June 2027"
     )
 
-    # Your GitHub Pages URL
-    base_url = "https://xubair001.github.io/qr.certificates/certificates"
+    # Shortened URL (redirects to GitHub Pages)
+    base_url = "https://bit.ly/cert-pk17058"
 
     print("\n" + "="*50)
     print("CERTIFICATE GENERATOR")
